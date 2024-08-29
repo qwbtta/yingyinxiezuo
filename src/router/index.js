@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import messageCenter from '../views/messageCenter.vue'
 
 Vue.use(VueRouter)
 
@@ -8,20 +8,37 @@ const routes = [
   {
     path: '/',
     name: 'home',
-    component: HomeView
+    component: messageCenter
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
-  }
+    path: '/resourceLibrary',
+    name: 'resourceLibrary',
+    component: () => import('../views/resourceLibrary.vue')
+  },
+  {
+    path: '/addressBook',
+    name: 'addressBook',
+    component: () => import('../views/addressBook.vue')
+  },
+  {
+    path: '/unfinished',
+    name: 'unfinished',
+    component: () => import('../views/unfinished.vue')
+  },
+  {
+    path: '/projectDetail',
+    name: 'projectDetail',
+    component: () => import('../views/projectDetail.vue')
+  },
+  {
+    path: '/fileDetail',
+    name: 'fileDetail',
+    component: () => import('../views/fileDetail.vue')
+  },
 ]
 
 const router = new VueRouter({
-  mode: 'history',
+  mode: 'hash',
   base: process.env.BASE_URL,
   routes
 })
